@@ -181,7 +181,7 @@ boolen b=$('#txt_Name').validatebox("isValid");//验证结果
     </script>
 </head>
 <body>
-    邮箱验证：<input type="text" validtype="email" required="true" missingMessage="不克不及为空" invalidMessage="邮箱格局不正确" /><br />
+    邮箱验证：<input type="text" validtype="email" required="true" missingMessage="邮箱不能为空" invalidMessage="邮箱格局不正确" /><br />
     网址验证：<input type="text" validtype="url" invalidMessage="url格局不正确[http://www.example.com]" /><br />
     长度验证：<input type="text" validtype="length[8，20]" invalidMessage="有效长度8-20" /><br />
     手机验证：<input type="text" validtype="mobile"  /><br />
@@ -196,14 +196,14 @@ boolen b=$('#txt_Name').validatebox("isValid");//验证结果
 
 # 扩大easyui表单的验证
 $.extend（$.fn.validatebox.defaults.rules， {
-    #验证汉子
-    CHS: {
+    //验证汉字
+    CHS: {
         validator: function （value） {
             return /^[\u0391-\uFFE5]+$/.test（value）;
         }，
         message: ""只能输入汉字""
     }，
-    #移下手机号码验证
+    //移下手机号码验证
     mobile: {//value值为文本框中的值
         validator: function （value） {
             var reg = /^1[3|4|5|8|9]\d{9}$/;
@@ -211,7 +211,7 @@ $.extend（$.fn.validatebox.defaults.rules， {
         }，
         message: ""输入手机号码格局不正确.""
     }，
-    # 国内邮编验证
+    //国内邮编验证
     zipcode: {
         validator: function （value） {
             var reg = /^[1-9]\d{5}$/;
@@ -219,7 +219,7 @@ $.extend（$.fn.validatebox.defaults.rules， {
         }，
         message: ""邮编必须长短0开端的6位数字.""
     }，
-    # 用户账号验证（只能包含 _ 数字 字母） 
+    //用户账号验证（只能包含 _ 数字 字母） 
     account: {//param的值为[]中值
         validator: function （value， param） {
             if （value.length < param[0] || value.length > param[1]） {
