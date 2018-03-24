@@ -76,7 +76,6 @@ boolen b=$('#txt_Name').validatebox("isValid");//验证结果
             integer: {// 验证整数 可正负数
                 validator: function (value) {
                     //return /^[+]?[1-9]+\d*$/i.test(value);
-
                     return /^([+]?[0-9])|([-]?[0-9])+\d*$/i.test(value);
                 },
                 message: '请输入整数'
